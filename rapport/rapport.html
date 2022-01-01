@@ -10,38 +10,112 @@
     <h1>Rapport de projet de Math</h1>
 
     <h2>Sujet :  Consommation d’alcool et resultats scolaires</h2>
-    <h2>Groupe 3 : ACARAZ Yannick et CORBIERE Nicolas </h2>
+    <h2>Groupe 3 : ALCARAZ Yannick et CORBIERE Nicolas </h2>
 
     <h3>Introduction</h3>
 
-    <p>Ce document est un rapport portant sur un projet de mathématique appliquer qu Big Data. 
+    <p>Ce document est un rapport portant sur un projet de mathématique appliquer au Big Data. 
       Dans ce raport, nous vous présenterons dans un premier temps les membres ainsi que leur rôle dans le projet.
     Nous enchênerons avec la description du sujet et de ses finalités. Nous poursuivrons avec un descriptif des données utilisé. 
     Puis, nous parlerons de notre méthodologie de travail et terminerons par les résultats.</p>
 
     <h3>Membre et rôle</h3>
 
-    <p>cet partie, nous allons présenter chaque membre de l'équipe ainsi que leur rôle dans ce projet.</p>
+    <p>Dans cette partie, nous allons présenter chaque membre de l'équipe ainsi que leur rôle dans ce projet.
 
-    <p>Dans ce groupe, nous somme 2. Nous avons travailer ensemble afin de créer le script d'extraction de données. De même 
-      pour la premier question, nous avons tout les deux travailler sur la partie d'échantillonage et de test d'hyothèse. 
-    </p>
-    <p>ALCARAZ Yannick qui viens d'un BTS et qui a fait la L3 MIAGE. Il a eu pour tâche de faire la question 2 et 3 en plus 
-      des échantillonages et de la génération des graphique. 
+    Dans ce groupe, nous somme 2. Nous avons travailer ensemble afin de créer le script d'extraction de données. De même,
+       pour la premier question, nous avons tout les deux travaillés sur la partie d'échantillonage et de test d'hyothèse. 
+      
+    ALCARAZ Yannick viens d'un BTS et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 2 et 3 en plus 
+      des échantillonages, test d'hypothese et de la génération des graphiques. 
+    
+    CORBIERE Nicolas viens d'un IUT et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 1 ainsi que le rapport. 
+      Il a beacoup contribuer sur l'extration des données et sur les test d'hypothèse. 
     </p>
 
-    <p>CORBIERE Nicolas qui viens d'un IUT et qui a fait la L3 MIAGE. Il a eu pour tâche de faire la question 1 ainsi que le rapport. 
-      Il a aussi aider yannick lorsqu'il avait un soucis. 
-    </p>
     <h3>Descriptif du sujet et de ses finalites</h3>
+    
+    <p>
+      Nous allons maintenant rentrer dans le vif du sujet en vous parlant du sujet ainsi que ses finalités.
+    </p>
+    <p>
+      Ce projet s'intéresse a consommation d’alcool chez les jeunes etudiants et l'impacte de ceci sur les résultats scolaire.
+      Nous avons pour finalité de prouver que la conssomation d'alcool a un impacte négatif sur les résultats des étudiant0.  </p>
 
     <h3>Descriptif des donnees utilis</h3>
+    <p>
+      Afin de pouvoir prouver notre hypothèse, nous avons utiliser une base de données sur des étudiant portugais incluant, entre autre, leur 
+      consommation d'alcool et leur résultats scolaire. Nous avions deux base, l'une portant sur les résultats en math et l'autre sur les 
+      résultats en portugais. Notre première tâche fut alors de fusionner ces deux bases afin de pouvoir traiter toutes les 
+      information correctement. De plus, la conssomation d'alcool est notée via un indice allant de 1 (pas beaucoup) a 10 (beaucoup).
+        </p>
+        <p>Vous retrouverez ci-dessous la base de donnée ainsi que des infotmations complémentaire : </p>
+        <ul>
+          <li>
+            https://www.kaggle.com/uciml/student-alcohol-consumption
+          </li>
+          <li>
+            https://archive.ics.uci.edu/ml/datasets/Student+Performance
+          </li>
+        </ul>
 
     <h3>Methodologie de travail</h3>
 
+      <p>
+        Dans cette partie, nous allons expliquer notre méthodologie de travail. Tout d'aords, nous avons 
+        commencer a mettre en place un repertoire git afin de pouvoir facilement partager notre code. 
+        Pour la création d'échantillons, nous prenons de manière aléatoire un certain nombre d'individues parmis la base.
+        Suite a cela, nous proposons des hypothèse et les verifions grace a des test d'hypothèse.  
+      </p>
+
     <h3>Resultats</h3>
     <!-- Avec les graphs -->
-   
+
+    <p> Pour finir, nous allons vous préseter les résultats que nous avons obtenue. Nous avons répondue a 3 questions et
+      pour chacune d'entre elle, nous avons fait des tests d'hypothèse.
+    </p>
+
+    <h4>Question 1 :  La consommation d’alcool est elle plus elevée chez les étudiants de milieu modeste ?</h4>
+    <p>Ici, nous voulons vérifier si les étudiants de niveau modeste consomme plus d'alcool que les autres étudiants.</p>
+
+    <p>
+      Apres avoir calculer la moyenne de consommation d'alcool journalier des étudiants avec deux parents de niveau
+      d'instruction modeste, nous nous retrouvons avec un indice de conssomation moyen de 3,67. Nous avons ensuite calculer 
+      la moyenne pour tous les étudiant n'ayant pas deux parents de milieu modeste et nous avons trouver  3.79.
+      Nous pouvons en conclure que les étidant de niveau moyen ne consomme pas forcémnt plus d'alcool.
+    </p>
+
+    <p>Nous avons ensuite formuler deux hypothèse: </p>
+
+    <ul>
+      <li>
+        H0 = nous supossion que l'indice d'alcoolémie des étudiant de milieu modeste était égal a 4. 
+      </li>
+      <li>
+        H1 = nous supossion que l'indice d'alcoolémie des étudiant d'autre milieu était égal a 3. 
+      </li>
+    </ul>
+
+    <p>Pour H0, nous avons obtenue un résultat égal a 0.822, cette valeur est supérieur a alpha (0.05). 
+      De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
+      
+    <p>Pour H1, nous avons obtenue un résultat égal a -1.70, cette valeur est inférieur a alpha (0.05). 
+      De ce fait, nous rejetons notre hypothèse H1.</p>
+
+  <h4>Question 2 :  Est-ce que c’est vrai que le taux de reussite est supérieur chez les étudiants qui n’abusent pas d’alcool ?</h4>
+  <p>Ici, nous voulons vérifier si les étudiants ne consommant pas beaucoup d'alcool réussissebt mieux dans leurs études. </p>
+
+  <p>
+    Pour se faire, nous avons comparer les étudiant avec une consomation d'alcool journalier inférieur a 6 et 
+    des étudiants avec une consomation d'alcool journalier supérieur a 5. Nous avons ensuite comparer la moyenne 
+    de leur note. Au final, les personne ne buvant pas beaucoup d'alcool on une moyenne de 11,80 alors que les 
+    buveur se retrouve avec 10,29.       
+    Nous pouvons en conclure que les étudant ne buvant pas beaucoup d'alcool on de meilleurs résultats.
+  </p>
+
+
+
+
 
   </body>
 </html>
