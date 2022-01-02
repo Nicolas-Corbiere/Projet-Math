@@ -24,7 +24,7 @@ print(percentFillesAlcool) #91.79
 
 
 
-# 2.2 - Échantillonage
+# 3.2 - Échantillonage
 
 uM <- percentGarçonsAlcool
 oM <- sd(garçonsAlcool$Dalc + garçonsAlcool$Walc)
@@ -39,10 +39,10 @@ tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), 30,replace=FALSE), 
 echanFillesAlcool <- tabFillesAlcool$Dalc + tabFillesAlcool$Walc
 print(echanFillesAlcool)
 
-# 2.3 - Test d'Hypothèse 
+# 3.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
 
-# 2.3.1 Consommation faible
+# 3.3.1 Garçons
 
 # Nous supposons que ce sont les garçons qui abusent beaucoup de l'alcool
 # et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 80
@@ -54,7 +54,7 @@ print(tM)
 # Nous avons un résultat égal a 54.449 , cette valeur est supérieur 
 # a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
-# 2.3.2 Consommation élevé
+# 2.3.2 Filles
 
 # Nous supposons que ce sont les filles qui abusent le moins de l'alcool
 # et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 60
@@ -66,7 +66,7 @@ print(tM)
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
 
 
-# 2.4 Graphs
+# 3.4 Graphs
 library(help="graphics")
 
 x = c(percentGarçonsAlcool, percentFillesAlcool)
