@@ -63,7 +63,7 @@ print(tM)
 
 tM <- (10 - MoyenneAlcool) / (oM/sqrt(30)) 
 print(tM)
-
+  
 # Nous avons un résultat égal a -1.157 , cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
 
@@ -73,4 +73,4 @@ library(help="graphics")
 
 x = c(MoyenneNoAlcool, MoyenneAlcool)
 noms_barres <- c("faible", "élevé")
-barplot(x,ylim=c(0, 20), xlab="Degrés de consommation d'alcool",ylab="Moyenne générale", ,names.arg=noms_barres);   box(title(main = "Impact de la consommation d'alcool sur le taux de réussite des étudiants"))
+barplot(x,ylim=c(0, 20), xlab="Degrés de consommation d'alcool",ylab="Résultat scolaire", ,names.arg=noms_barres);   box(title(main = "Impact de la consommation d'alcool sur le taux de réussite des étudiants"))

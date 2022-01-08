@@ -79,4 +79,4 @@ library(help="graphics")
 
 x = c(moyenneM,moyenneO)
 noms_barres <- c("Modeste", "Autre")
-barplot(x,ylim=c(0, 5), xlab="Niveau instruction parents",ylab="Consommation moyenne d'alcool", ,names.arg=noms_barres);   box(title(main = "consommation moyenne d'alcool chez les étudiants en fonction du niveau d'instruction de leur parents"))
+barplot(x,ylim=c(0, 5), xlab="Niveau instruction parents",ylab="Consommation jouralière d'alcool", ,names.arg=noms_barres);   box(title(main = "Consommation moyenne d'alcool chez les étudiants en fonction du niveau d'instruction de leur parents"))

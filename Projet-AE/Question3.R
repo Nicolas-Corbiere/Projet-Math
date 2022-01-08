@@ -14,11 +14,11 @@ filles <- subset(mydata, sex=="F")
 garçonsAlcool <- subset(mydata, sex=="M" & Walc+Dalc<6)
 fillesAlcool <- subset(mydata, sex=="F" & Walc+Dalc<6)
 
-percentGarçonsAlcool <- (100*nrow(garçonsAlcool))/nrow(garçons)
-percentFillesAlcool <- (100*nrow(fillesAlcool))/nrow(filles)
+percentGarçonsAlcool <- (nrow(garçonsAlcool))/nrow(garçons)
+percentFillesAlcool <- (nrow(fillesAlcool))/nrow(filles)
 
-print(percentGarçonsAlcool) #69,14
-print(percentFillesAlcool) #91.79
+print(percentGarçonsAlcool) #69 %
+print(percentFillesAlcool) #92 %
 
 #Non !  La proportion de garçons qui abusent d’alcool est significativement inférieur à celle des filles
 
@@ -47,29 +47,29 @@ print(echanFillesAlcool)
 # Nous supposons que ce sont les garçons qui abusent beaucoup de l'alcool
 # et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 80
 
-tM <- (80 - percentGarçonsAlcool) / (oM/sqrt(30)) 
+tM <- (0.8 - percentGarçonsAlcool) / (oM/sqrt(30)) 
 print(tM)
 
 
-# Nous avons un résultat égal a 54.449 , cette valeur est supérieur 
-# a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H0.
+# Nous avons un résultat égal a 0,544. cette valeur est supérieur 
+# a alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Filles
 
 # Nous supposons que ce sont les filles qui abusent le moins de l'alcool
 # et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 60
 
-tM <- (60 - percentFillesAlcool) / (oM/sqrt(30)) 
+tM <- (0.6 - percentFillesAlcool) / (oM/sqrt(30)) 
 print(tM)
 
-# Nous avons un résultat égal a -159.451 , cette valeur est inférieur 
+# Nous avons un résultat égal a -1,595. Cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
 
 
 # 3.4 Graphs
 library(help="graphics")
 
-x = c(percentGarçonsAlcool, percentFillesAlcool)
+x = c(percentGarçonsAlcool*100, percentFillesAlcool*100)
 noms_barres <- c("garçons", "filles")
 barplot(x,ylim=c(0, 100), xlab="Sexe",ylab="Proportion en %", ,names.arg=noms_barres);   box(title(main = "Proportion de garçons/filles qui abusent de l'alcool"))
 
