@@ -26,15 +26,15 @@ print(percentFillesAlcool) #92 %
 
 # 3.2 - Échantillonage
 
-uM <- percentGarçonsAlcool
-oM <- sd(garçonsAlcool$Dalc + garçonsAlcool$Walc)
+uG <- percentGarçonsAlcool/100
+oG <- sd(garçonsAlcool$Dalc + garçonsAlcool$Walc)
 tabGarçonsAlcool <- garçonsAlcool[sample(1:nrow(garçonsAlcool), 30,replace=FALSE), ]
 echanGarçonsAlcool <- tabGarçonsAlcool$Dalc + tabGarçonsAlcool$Walc
 print(echanGarçonsAlcool)
 
 
-uM <- percentFillesAlcool
-oM <- sd(fillesAlcool$Dalc + fillesAlcool$Walc)
+uF <- percentFillesAlcool/100
+oF <- sd(fillesAlcool$Dalc + fillesAlcool$Walc)
 tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), 30,replace=FALSE), ]
 echanFillesAlcool <- tabFillesAlcool$Dalc + tabFillesAlcool$Walc
 print(echanFillesAlcool)
@@ -47,8 +47,8 @@ print(echanFillesAlcool)
 # Nous supposons que ce sont les garçons qui abusent beaucoup de l'alcool
 # et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 80
 
-tM <- (0.8 - percentGarçonsAlcool) / (oM/sqrt(30)) 
-print(tM)
+tG <- (0.8 - uG) / (oG/sqrt(30)) 
+print(tG)
 
 
 # Nous avons un résultat égal a 0,544. cette valeur est supérieur 
@@ -59,8 +59,8 @@ print(tM)
 # Nous supposons que ce sont les filles qui abusent le moins de l'alcool
 # et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 60
 
-tM <- (0.6 - percentFillesAlcool) / (oM/sqrt(30)) 
-print(tM)
+tF <- (0.6 - uF) / (oF/sqrt(30)) 
+print(tF)
 
 # Nous avons un résultat égal a -1,595. Cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.

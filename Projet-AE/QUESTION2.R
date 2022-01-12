@@ -27,15 +27,15 @@ print(MoyenneAlcool) # 10.29
 
 # 2.2 - Échantillonage
 
-uM <- MoyenneNoAlcool
-oM <- sd(noAlcool$Dalc + noAlcool$Walc)
+uNA <- MoyenneNoAlcool
+oNA <- sd(noAlcool$Dalc + noAlcool$Walc)
 tabNoAlcool <- noAlcool[sample(1:nrow(noAlcool), 30,replace=FALSE), ]
 echanNoAlcool <- tabNoAlcool$Dalc + tabNoAlcool$Walc
 print(echanNoAlcool)
 
 
-uM <- MoyenneAlcool
-oM <- sd(Alcool$Dalc + Alcool$Walc)
+uA <- MoyenneAlcool
+oA <- sd(Alcool$Dalc + Alcool$Walc)
 tabAlcool <- Alcool[sample(1:nrow(Alcool), 30, replace=FALSE), ]
 echanAlcool <- tabAlcool$Dalc + tabAlcool$Walc
 print(echanAlcool)
@@ -49,11 +49,11 @@ print(echanAlcool)
 # Nous supposons que les étudiants qui boivent peu d'alcool ont des meilleures notes à l'école
 # et donc nous pensons que leur moyenne générale global sera de H0 = 12
 
-tM <- (12 - MoyenneNoAlcool) / (oM/sqrt(30)) 
-print(tM)
+tNA <- (12 - uNA) / (oNA/sqrt(30)) 
+print(tNA)
 
 
-# Nous avons un résultat égal a 0.808 , cette valeur est supérieur 
+# Nous avons un résultat égal a 1.020 , cette valeur est supérieur 
 # a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Consommation élevé
@@ -61,8 +61,8 @@ print(tM)
 # Nous supposons que les étudiants qui boivent beaucoup d'alcool ont des moins bonnes notes à l'école
 # et donc nous pensons que leur moyenne générale global sera de H0 = 10
 
-tM <- (10 - MoyenneAlcool) / (oM/sqrt(30)) 
-print(tM)
+tA <- (10 - uA) / (oA/sqrt(30)) 
+print(tA)
   
 # Nous avons un résultat égal a -1.157 , cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.

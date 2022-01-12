@@ -55,7 +55,7 @@ print(echanO)
 # et donc nous pensons que la moyenne d'indicateur de taux
 # d'alcoolémie est de H0 = 4.
 
-tM <- (4 - moyenneM) / (oM/sqrt(30)) 
+tM <- (4 - uM) / (oM/sqrt(30)) 
 print(tM)
 
 # Nous avons un résultat égal a 0.822, cette valeur est supérieur 
@@ -68,10 +68,10 @@ print(tM)
 # et donc nous pensons que la moyenne d'indicateur de taux
 # d'alcoolémie est de H0 = 3.
 
-tM <- (3 - moyenneM) / (oM/sqrt(30)) 
-print(tM)
+tO <- (3 - uO) / (oO/sqrt(30)) 
+print(tO)
 
-# Nous avons un résultat égal a -1.70, cette valeur est inférieur 
+# Nous avons un résultat égal a -2.21, cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
 
 # 1.4 Graphs
