@@ -43,17 +43,17 @@
       Nous allons maintenant rentrer dans le vif du sujet en vous parlant du sujet ainsi que ses finalités.
     </p>
     <p>
-      Ce projet s'intéresse a consommation d’alcool chez les jeunes étudiants et l'impacte de ceci sur les résultats scolaires.<br>
-Nous avons pour finalité de prouver que la consommation d'alcool a un impacte négatif sur les résultats des étudiants.   </p>
+      Ce projet s'intéresse à consommation d’alcool chez les jeunes étudiants et l'impact de ceci sur les résultats scolaires.<br>
+Nous avons pour finalité de prouver que la consommation d'alcool a un impact négatif sur les résultats des étudiants.   </p>
 
     <h3>Descriptif des données utilisées</h3>
     <p>
       Afin de pouvoir prouver notre hypothèse, nous avons utilisé une base de données sur des étudiants portugais incluant, entre autres, leur  <br>      
       consommation d'alcool et leur résultat scolaire. Nous avions deux bases, l'une portant sur les résultats en math et l'autre sur les    <br>    
       résultats en portugais. Notre première tâche fut alors de fusionner ces deux bases afin de pouvoir traiter toutes les        <br>
-      informations correctement. De plus, la consommation d'alcool est notée via un indice allant de 1 (pas beaucoup) a 10 (beaucoup).
+      informations correctement. De plus, la consommation d'alcool est notée via un indice allant de 1 (pas beaucoup) a 5 (beaucoup).
         </p>
-        <p>Vous retrouverez ci-dessous la base de données ainsi que des informations complémentaire : </p>
+        <p>Vous retrouverez ci-dessous la base de données ainsi que des informations complémentaires : </p>
         <ul>
           <li>
             <a href="https://www.kaggle.com/uciml/student-alcohol-consumption" target="_blank">Donnée</a>
@@ -70,8 +70,11 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impacte n
       <p>
         Dans cette partie, nous allons expliquer notre méthodologie de travail. Tout d'abord, nous avons        <br>  
         commencé à mettre en place un répertoire git afin de pouvoir facilement partager notre code. <br>
-        Pour la création d'échantillons, nous prenons de manière aléatoire un certain nombre d'individus parmi la base.<br>
-        Suite à cela, nous proposons des hypothèses et les vérifions grâce à des tests d'hypothèse. <br>
+        Pour calculer la moyenne d'alcoolémie, nous avons comme donné un indice de consommation de lundi à vendredi et un indice <br>
+        pour les week-ends. Nous avons alors additionné ces deux indices pour obtenir la consommation dans la semaine. <br>
+        À partir de ce nouvel indice, nous avons effectué le calcul de la moyenne. <br>
+        Pour la création d'échantillons, nous prenons de manière aléatoire un nombre d'individus supérieur ou égal à 30 parmi la base, <br>
+        comme lu cours. Suite à cela, nous proposons des hypothèses et les vérifions grâce à des tests d'hypothèse. <br>
       </p>
 
     <h3>Resultats</h3>
@@ -80,7 +83,7 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impacte n
       pour chacune d'entre elles, nous avons fait des tests d'hypothèse.
     </p>
 
-    <h4>Question 1 :  La consommation d’alcool est elle plus élevée chez les étudiants de milieu modeste ?</h4>
+    <h4>Question 1 :  La consommation d’alcool est-elle plus élevée chez les étudiants de milieu modeste ?</h4>
     <p>Ici, nous voulons vérifier si les étudiants de niveau modeste consomment plus d'alcool que les autres étudiants.</p>
 
     <p>
@@ -141,7 +144,7 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impacte n
     <h4>Question 3 : Est-ce que la proportion de garçons qui abusent d’alcool est significativement supérieure à celle des       <br>
       filles ?</h4>
 
-      <p>Ici, nous voulons vérifié si les étudiants consommant beaucoup plus plus d'alcool que les étudiantes.</p>
+      <p>Ici, nous voulons vérifier si les étudiants consommant beaucoup plus plus d'alcool que les étudiantes.</p>
 
       <p>Pour ce faire, nous avons calculé le pourcentage de garçon et de femme qui ont un indice d'alcoolémie    <br>      
         supérieur à 6. Nous avons trouvé que 91% des femmes abusent d'alcool contre 69% pour les hommes. Au final,    <br>     
@@ -165,7 +168,7 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impacte n
     </li>
   </ul>
 
-  <p> Nous avons un résultat égal à 0,544. cette valeur est supérieur <br>
+  <p> Nous avons un résultat égal à 0,544. Cette valeur est supérieure <br>
     à alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
     
   <p>Nous avons un résultat égal à -1,595. Cette valeur est inférieure      <br>
@@ -176,6 +179,9 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impacte n
     <p>Grâce à cette étude, nous pouvons dire que le niveau d'éducation des parents ne joue pas un        <br>
       rôle important dans la consommation d'alcool. De plus, les femmes consomment plus d'alcool que les hommes      <br> 
       et au final, l'alcool impacte de manière négative les résultats scolaires. <br>
+      <br>
+      Cependant, il faut faire attention, cette étude se base sur très peu de données, <br>
+      nous ne pouvons donc pas en conclure qu’ils s’agissent d’une vérité globalement partager à travers le monde. <br>
     </p>
     
   </body>
