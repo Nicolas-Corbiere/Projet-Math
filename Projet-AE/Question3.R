@@ -51,7 +51,7 @@ tG <- (0.8 - uG) / (oG/sqrt(30))
 print(tG)
 
 
-# Nous avons un résultat égal a 0,544. cette valeur est supérieur 
+# Nous avons un résultat égal a 0,538. cette valeur est supérieur 
 # a alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Filles
