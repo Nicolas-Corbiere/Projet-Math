@@ -11,29 +11,30 @@ View(mydata)
 garçons <- subset(mydata, sex=="M")
 filles <- subset(mydata, sex=="F")
 
-garçonsAlcool <- subset(mydata, sex=="M" & Walc+Dalc<6)
-fillesAlcool <- subset(mydata, sex=="F" & Walc+Dalc<6)
+garçonsAlcool <- subset(mydata, sex=="M" & Walc+Dalc>5)
+fillesAlcool <- subset(mydata, sex=="F" & Walc+Dalc>5)
 
 percentGarçonsAlcool <- (nrow(garçonsAlcool))/nrow(garçons)
 percentFillesAlcool <- (nrow(fillesAlcool))/nrow(filles)
 
-print(percentGarçonsAlcool) #69 %
-print(percentFillesAlcool) #92 %
+print(percentGarçonsAlcool) #30 %
+print(percentFillesAlcool) #08 %
 
-#Non !  La proportion de garçons qui abusent d’alcool est significativement inférieur à celle des filles
+
+#Oui !  La proportion de garçons qui abusent d’alcool est significativement supérieur à celle des filles
 
 
 
 # 3.2 - Échantillonage
 
-uG <- percentGarçonsAlcool/100
+uG <- percentGarçonsAlcool
 oG <- sd(garçonsAlcool$Dalc + garçonsAlcool$Walc)
 tabGarçonsAlcool <- garçonsAlcool[sample(1:nrow(garçonsAlcool), 30,replace=FALSE), ]
 echanGarçonsAlcool <- tabGarçonsAlcool$Dalc + tabGarçonsAlcool$Walc
 print(echanGarçonsAlcool)
 
 
-uF <- percentFillesAlcool/100
+uF <- percentFillesAlcool
 oF <- sd(fillesAlcool$Dalc + fillesAlcool$Walc)
 tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), 30,replace=FALSE), ]
 echanFillesAlcool <- tabFillesAlcool$Dalc + tabFillesAlcool$Walc
@@ -51,7 +52,7 @@ tG <- (0.8 - uG) / (oG/sqrt(30))
 print(tG)
 
 
-# Nous avons un résultat égal a 0,538. cette valeur est supérieur 
+# Nous avons un résultat égal a 1.888. cette valeur est supérieur 
 # a alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Filles
