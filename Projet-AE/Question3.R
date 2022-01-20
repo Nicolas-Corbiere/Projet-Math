@@ -36,10 +36,11 @@ print(echanGarçonsAlcool)
 
 uF <- percentFillesAlcool
 oF <- sd(fillesAlcool$Dalc + fillesAlcool$Walc)
-tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), 30,replace=FALSE), ]
+tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), nrow(fillesAlcool),replace=FALSE), ]
 echanFillesAlcool <- tabFillesAlcool$Dalc + tabFillesAlcool$Walc
 print(echanFillesAlcool)
 
+print(nrow(fillesAlcool))
 # 3.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
 
