@@ -27,17 +27,16 @@ print(percentFillesAlcool) #08 %
 
 # 3.2 - Échantillonage
 
-uG <- percentGarçonsAlcool
-oG <- sd(garçonsAlcool$Dalc + garçonsAlcool$Walc)
-tabGarçonsAlcool <- garçonsAlcool[sample(1:nrow(garçonsAlcool), 30,replace=FALSE), ]
-echanGarçonsAlcool <- tabGarçonsAlcool$Dalc + tabGarçonsAlcool$Walc
-print(echanGarçonsAlcool)
 
-uF <- percentFillesAlcool
-oF <- sd(fillesAlcool$Dalc + fillesAlcool$Walc)
-tabFillesAlcool <- fillesAlcool[sample(1:nrow(fillesAlcool), nrow(fillesAlcool),replace=FALSE), ]
-echanFillesAlcool <- tabFillesAlcool$Dalc + tabFillesAlcool$Walc
-print(echanFillesAlcool)
+echanGarçons<- garçons[sample(1:nrow(garçons), 30,replace=FALSE), ]
+echanFilles <- filles[sample(1:nrow(filles), 30,replace=FALSE), ]
+
+echanGarçonsAlcool<- echanGarçons[sample(1:nrow(echanGarçons), 30,replace=FALSE), ]
+echanFillesAlcool <- echanFilles[sample(1:nrow(echanFilles), 30,replace=FALSE), ]
+
+
+percentEchanGarçonsAlcool <- nrow(echanGarçonsAlcool)/nrow(echanGarçons)
+percentEchanFillesAlcool <- nrow(echanFillesAlcool)/nrow(echanFilles)
 
 # 3.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
@@ -47,9 +46,8 @@ print(echanFillesAlcool)
 # Nous supposons que ce sont les garçons qui abusent beaucoup de l'alcool
 # et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 80
 
-tG <- (0.8 - uG) / (oG/sqrt(30)) 
-print(tG)
-
+testG <- t.test(nrow(garçonsAlcool)/nrow(garçons), mu=0.3)
+testG$p.value # Affichage de la p-value
 
 # Nous avons un résultat égal a 1.888. cette valeur est supérieur 
 # a alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.
@@ -59,8 +57,13 @@ print(tG)
 # Nous supposons que ce sont les filles qui abusent le moins de l'alcool
 # et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 60
 
-tF <- (0.6 - uF) / (oF/sqrt(30)) 
-print(tF)
+
+testF <- t.test((echanFilles$Dalc + echanFilles$Walc)>5, mu=0.08)
+testF$p.value # Affichage de la p-value
+
+testF <-prop.test(echanFillesAlcool$Dalc + echanFillesAlcool$Walc, echanFilles$Dalc + echanFilles$Walc)
+testF$p.value # Affichage de la p-value
+
 
 # Nous avons un résultat égal a -1,595. Cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.

@@ -13,7 +13,7 @@ View(mydata)
 
 # 1.1.1 Modeste
 
-# Pour les élèves de milieu modeste 
+# Pour les élèves dont le niveau d'instruction des parents est modeste 
 mydataModeste <- subset(mydata,Medu == 2 & Fedu == 2 )
 sumAlcoolM <- sum(mydataModeste$Dalc) + sum(mydataModeste$Walc)
 TotalM <- nrow(mydataModeste)
@@ -22,57 +22,50 @@ print(moyenneM) # 3.673469
 
 # 1.1.2 Autre
 
-# Pour les élèves d'autre milieu ou de milieu mixte 
+# Pour les élèves dont le niveau d'instruction des parents n'est pas modeste 
 mydataOther <- subset(mydata,Medu != 2 | Fedu != 2)
 sumAlcoolO <- sum(mydataOther$Dalc) + sum(mydataOther$Walc)
 TotalO <- nrow(mydataOther)
 moyenneO <- sumAlcoolO/TotalO
 print(moyenneO) # 3.794393
 
-#Les élève dont les parents on un niveau d’instruction modeste
+#Les élève dont les parents ont un niveau d’instruction modeste
 #ont un niveau d'alcool moins élever que les autre élève
 
 # 1.2 - Échantillonage
 
-uM <- moyenneM
-oM <- sd(mydataModeste$Dalc + mydataModeste$Walc)
-tabM <- mydataModeste[sample(1:nrow(mydataModeste), 30, replace=FALSE), ]
-echanM <- tabM$Dalc + tabM$Walc
-print(echanM)
-
-uO <- moyenneO
-oO <- sd(mydataOther$Dalc + mydataOther$Walc)
-tabO <- mydataOther[sample(1:nrow(mydataOther), 75, replace=FALSE), ]
-echanO <- tabO$Dalc + tabO$Walc
-print(echanO)
+echanM <- mydataModeste[sample(1:nrow(mydataModeste), 45, replace=FALSE), ]
+echanO <- mydataOther[sample(1:nrow(mydataOther), 45, replace=FALSE), ]
 
 # 1.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
 
 # 1.3.1 Modeste
 
-# Nous supposons que les élèves de parents modeste boivent beaucoup
-# et donc nous pensons que la moyenne d'indicateur de taux
-# d'alcoolémie est de H0 = 4.
+# Nous supposons que les élèves dont le niveau d'instruction 
+# des parents est modeste boivent beaucoup et donc nous pensons 
+# que la moyenne d'indicateur de taux d'alcoolémie est de H0 = 4.
 
-tM <- (4 - uM) / (oM/sqrt(30)) 
-print(tM)
 
-# Nous avons un résultat égal a 0.822, cette valeur est supérieur 
+testM <- t.test(echanM$Dalc + echanM$Walc, mu=4)
+testM$p.value # Affichage de la p-value
+
+
+# Nous avons une p-value égal a 0.40, cette valeur est supérieur 
 # a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 
 # 1.3.2 Autre
 
-# Nous supposons que les élèves d'autres milieux boivent moins
-# et donc nous pensons que la moyenne d'indicateur de taux
-# d'alcoolémie est de H0 = 3.
+# Nous supposons que les élèves dont le niveau d'instruction 
+# des parents n'est pas modeste boivent moins et donc nous pensons 
+# que la moyenne d'indicateur de taux d'alcoolémie est de H1 = 4.
 
-tO <- (3 - uO) / (oO/sqrt(30)) 
-print(tO)
+testO <- t.test(echanO$Dalc + echanO$Walc, mu=3)
+testO$p.value # Affichage de la p-value
 
-# Nous avons un résultat égal a -2.21, cette valeur est inférieur 
-# a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
+# Nous avons une p-value égal a 0.01, cette valeur est inférieur de 
+# alpha (0.05).  De ce fait, nous rejetons  notre hypothèse H1.
 
 # 1.4 Graphs
 library(help="graphics")

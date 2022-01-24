@@ -28,18 +28,9 @@ print(MoyenneAlcool) # 10.29
 
 # 2.2 - Échantillonage
 
-uNA <- MoyenneNoAlcool
-oNA <- sd(noAlcool$Dalc + noAlcool$Walc)
-tabNoAlcool <- noAlcool[sample(1:nrow(noAlcool), 30,replace=FALSE), ]
-echanNoAlcool <- tabNoAlcool$Dalc + tabNoAlcool$Walc
-print(echanNoAlcool)
+echanNoAlcool <- noAlcool[sample(1:nrow(noAlcool), 30,replace=FALSE), ]
+echanAlcool <- Alcool[sample(1:nrow(Alcool), 30, replace=FALSE), ]
 
-
-uA <- MoyenneAlcool
-oA <- sd(Alcool$Dalc + Alcool$Walc)
-tabAlcool <- Alcool[sample(1:nrow(Alcool), 30, replace=FALSE), ]
-echanAlcool <- tabAlcool$Dalc + tabAlcool$Walc
-print(echanAlcool)
 
 # 2.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
@@ -49,11 +40,11 @@ print(echanAlcool)
 # Nous supposons que les étudiants qui boivent peu d'alcool ont des meilleures notes à l'école
 # et donc nous pensons que leur moyenne générale global sera de H0 = 12
 
-tNA <- (12 - uNA) / (oNA/sqrt(30)) 
-print(tNA)
+testNA <- t.test((echanNoAlcool$G1.x + echanNoAlcool$G2.x + echanNoAlcool$G3.x + echanNoAlcool$G1.y + echanNoAlcool$G2.y + echanNoAlcool$G3.y)/6, mu=12)
+testNA$p.value # Affichage de la p-value
 
 
-# Nous avons un résultat égal a 1.020 , cette valeur est supérieur 
+# Nous avons une p-value égal a 0.23, cette valeur est supérieur 
 # a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Consommation élevé
@@ -61,12 +52,11 @@ print(tNA)
 # Nous supposons que les étudiants qui boivent beaucoup d'alcool ont des moins bonnes notes à l'école
 # et donc nous pensons que leur moyenne générale global sera de H0 = 10
 
-tA <- (10 - uA) / (oA/sqrt(30)) 
-print(tA)
-  
-# Nous avons un résultat égal a -1.157 , cette valeur est inférieur 
-# a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
+testA <- t.test((echanAlcool$G1.x + echanAlcool$G2.x + echanAlcool$G3.x + echanAlcool$G1.y + echanAlcool$G2.y + echanAlcool$G3.y)/6, mu=10)
+testA$p.value # Affichage de la p-value
 
+# Nous avons une p-value égal a 0.53, cette valeur est supérieur 
+# a alpha (0.05). De ce fait, nous ne rejetons pas notre hypothèse H1.
 
 # 2.4 Graphs
 library(help="graphics")
