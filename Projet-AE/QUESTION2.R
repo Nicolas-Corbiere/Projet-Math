@@ -19,6 +19,7 @@ TotalAlcool <- nrow(Alcool)
 MoyenneAlcool <- sumNoteAlcool/TotalAlcool
 print(MoyenneAlcool) # 10.29
 
+
 #moyenne des personnes qui abusent de l'alcool < moyenne des personnes qui n'abusent pas de l'alcool
 #10.29 < 11.79
 
@@ -39,7 +40,6 @@ oA <- sd(Alcool$Dalc + Alcool$Walc)
 tabAlcool <- Alcool[sample(1:nrow(Alcool), 30, replace=FALSE), ]
 echanAlcool <- tabAlcool$Dalc + tabAlcool$Walc
 print(echanAlcool)
-
 
 # 2.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
