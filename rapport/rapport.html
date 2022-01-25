@@ -15,10 +15,10 @@
     <h3>Introduction</h3>
 
     <p>Ce document est un rapport portant sur un projet de mathématique. <br>
-      L'objectif de ce projet et de déterminer si l'alcool impacte les résultats scolaires<br>
+      L'objectif de ce projet et de déterminer si l'alcool impacte les résultats scolaires.<br>
       Dans ce rapport, nous vous présenterons dans un premier temps les membres ainsi que leur rôle dans le projet.<br>
-      Nous enchaînerons avec la description du sujet et de ses finalités. Nous poursuivrons avec un descriptif des données utilisées. <br>
-      Puis, nous parlerons de notre méthodologie de travail suivie des résultats. 
+      Nous enchaînerons avec la description du sujet et de ses finalités. Nous poursuivrons avec un descriptif des données utilisées, <br>
+      puis, nous parlerons de notre méthodologie de travail suivie des résultats. 
       Nous terminerons par une courte conclusion.
     </p>
 
@@ -27,14 +27,14 @@
     <p>Dans cette partie, nous allons présenter chaque membre de l'équipe ainsi que leur rôle dans ce projet.<br>
 
       Dans ce groupe, nous sommes 2. Nous avons travaillé ensemble afin de créer le script d'extraction de données. <br>
-      De même,pour la première question, nous avons tous les deux travaillé sur la partie d'échantillonnage et de test d'hypothèse et
+      De même, pour la première question, nous avons tous les deux travaillé sur la partie d'échantillonnage et de test d'hypothèse et
       nous avons tous les deux participé à la préparation de l'orale.<br>
       
       ALCARAZ Yannick vient d'un BTS et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 2 et 3 en plus        
-      des échantillonnages, test d'hypothèse de ces dernières. Il a aussi créé les graphiques. <br>
+      des échantillonnages, des test d'hypothèse et à de la création des graphiques.  Il a ensuite fait le Diaporama pour la soutenance.<br>
       
       CORBIERE Nicolas vient d'un IUT et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 1 ainsi que le rapport. 
-      Il a beaucoup contribué sur l'extraction des données et sur les tests d'hypothèse. <br>
+      Il a beaucoup contribué sur l'extraction des données et sur les tests d'hypothèse. Il a ensuite structure l'orale pour la soutenance. <br>
     </p>
 
     <h3>Descriptif du sujet et de ses finalites</h3>
@@ -43,8 +43,8 @@
       Nous allons maintenant rentrer dans le vif du sujet en vous parlant du sujet ainsi que ses finalités.
     </p>
     <p>
-      Ce projet s'intéresse à consommation d’alcool chez les jeunes étudiants et l'impact de ceci sur les résultats scolaires.<br>
-Nous avons pour finalité de prouver que la consommation d'alcool a un impact négatif sur les résultats des étudiants.   </p>
+      Ce projet s'intéresse à la consommation d’alcool chez les jeunes étudiants et l'impact de ceci sur leurs résultats scolaires.<br>
+      Nous avons pour finalité de prouver que la consommation d'alcool a un impact négatif sur les résultats des étudiants.   </p>
 
     <h3>Descriptif des données utilisées</h3>
     <p>
@@ -75,8 +75,24 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
         À partir de ce nouvel indice, nous avons effectué le calcul de la moyenne. <br>
         Pour la création d'échantillons, nous prenons de manière aléatoire un nombre d'individus supérieur ou égal à 30 parmi la base, <br>
         comme lu cours. Suite à cela, nous proposons des hypothèses et les vérifions grâce à des tests d'hypothèse. <br>
+        Au départs, nous avons calculer la moyenne et l'écart type des échantillons afin de calculer la valeur T a partir de ces formules : 
       </p>
 
+      <p>Pour la question 1 et 2, nous effectuons des tests d'hypothèse classique : </p>
+      <img src="img/formule_T.PNG" width="150" height="100">
+
+
+      <p>Pour la qustion 3, nous effectuons des tests d'hypothèse sur des proportions : </p>
+      <img src="img/formule_TProp.PNG" width="200" height="120">
+
+
+      <p>
+        Cependant, suite a nos recherche, nous avons trouver que la formule "t.test" nous permet d'effectuer des test d'hypothèse <br>
+        très rapidement. De ce fait, la méthode nous renvoi plusieur donnée, notamment une p-value qui nous permet alors<br>
+        de rejeter notre hypothèse si cet valeur est inférieur a alpha, qui est égal a 0.05. <br>
+        Cependant, nous avons remarquer qu'en fonction de l'échabntilons, le résultat du test peut être différents, cependant <br>
+        ceci ne pause pas tant de souvcis que cela pour la validation ou l'invalidation d'une hypothèse.
+      </p>
     <h3>Resultats</h3>
 
     <p> Pour finir, nous allons vous présenter les résultats que nous avons obtenus. Nous avons répondu à 3 questions et      <br> 
@@ -98,14 +114,19 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
 
     <p>Nous avons ensuite formulé deux hypothèses:</p>
       <ul>
-        <li>H0 = nous supposions que l'indice d'alcoolémie des étudiants de milieu modeste était égal à 4.</li>
+        <li> H0 = nous supposions que l'indice d'alcoolémie des étudiants de milieu modeste était égal à 4.</li>
         <li> H1 = nous supposions que l'indice d'alcoolémie des étudiants d'autre milieu était égal à 3. </li>
       </ul>
+    <p>
+      Pour cette question, nous avons pris deux échantillons de 45 personnes parmi deux types de population,   <br>     
+      les personnes ayant deux parents de milieu modeste et personne n'ayant pas deux parents de milieu modeste.
+    </p>
+    
 
-    <p>Pour H0, nous avons obtenu un résultat égal à 0,822. Cette valeur est supérieure à alpha (0.05). <br>
+    <p>Pour H0, nous avons obtenu un résultat égal à 0,40. Cette valeur est supérieure à alpha (0.05). <br>
       De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
       
-    <p>Pour H1, nous avons obtenu un résultat égal à -1,70. Cette valeur est inférieure à alpha (0.05). <br>
+    <p>Pour H1, nous avons obtenu un résultat égal à 0,01. Cette valeur est inférieure à alpha (0.05). <br>
       De ce fait, nous rejetons notre hypothèse H1.</p>
 
   <h4>Question 2 :  Est-ce que c’est vrai que le taux de réussite est supérieur chez les étudiants qui n’abusent pas d’alcool ?</h4>
@@ -115,7 +136,7 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
     Pour ce faire, nous avons comparé les étudiants avec une consommation d'alcool journalier inférieur à 6 et      <br>
     des étudiants avec une consommation d'alcool journalier supérieur à 5. Nous avons ensuite comparé la moyenne    <br>  
     de leur note. Au final, les personnes ne buvant pas beaucoup d'alcool ont une moyenne de 11,80 alors que les   <br>    
-    buveurs se retrouvent avec 10,29.       <br>
+    buveurs se retrouvent avec 10,29. <br>
     Nous pouvons en conclure que les étudiants ne buvant pas beaucoup d'alcool ont de meilleurs résultats.
   </p>
 
@@ -134,6 +155,11 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
     </li>
   </ul>
 
+  <p>
+    Pour cette question, nous avons pris deux échantillons de 30 personnes parmi deux types de population,        
+    les personnes ayant un taux d'alcolémie supérieur a 6 et une population ayant un indice inférieur a 6 .
+  </p>
+
   <p>Pour H0, nous avons un résultat égal à 0,808. Cette valeur est supérieure      <br>
     à alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
     
@@ -147,8 +173,8 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
       <p>Ici, nous voulons vérifier si les étudiants consommant beaucoup plus plus d'alcool que les étudiantes.</p>
 
       <p>Pour ce faire, nous avons calculé le pourcentage de garçon et de femme qui ont un indice d'alcoolémie    <br>      
-        supérieur à 6. Nous avons trouvé que 91% des femmes abusent d'alcool contre 69% pour les hommes. Au final,    <br>     
-        c'est les femmes qui abusent grandement de l'alcool par rapport aux hommes.
+        supérieur à 6. Nous avons trouvé que 8% des femmes abusent d'alcool contre 30% pour les hommes. Au final,    <br>     
+        c'est bien les homme qui abusent grandement de l'alcool par rapport aux femmes.
       </p>
 
       <p>Graphique : </p>
@@ -167,6 +193,10 @@ Nous avons pour finalité de prouver que la consommation d'alcool a un impact n�
       
     </li>
   </ul>
+
+  <p>
+    Pour cette question, nous avons pris un échantilllons de 30 hommes et un échantillons de 30 femmes.
+  </p>
 
   <p> Nous avons un résultat égal à 0,544. Cette valeur est supérieure <br>
     à alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
