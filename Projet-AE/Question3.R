@@ -18,7 +18,7 @@ percentGarçonsAlcool <- (nrow(garçonsAlcool))/nrow(garçons)
 percentFillesAlcool <- (nrow(fillesAlcool))/nrow(filles)
 
 print(percentGarçonsAlcool) #30 %
-print(percentFillesAlcool) #08 %
+print(percentFillesAlcool) #8 %
 
 
 #Oui !  La proportion de garçons qui abusent d’alcool est significativement supérieur à celle des filles
@@ -29,14 +29,10 @@ print(percentFillesAlcool) #08 %
 
 
 echanGarçons<- garçons[sample(1:nrow(garçons), 30,replace=FALSE), ]
+pourcentEGAlcool <- nrow(subset(echanGarçons, Walc+Dalc>5))/nrow(echanGarçons)
+  
 echanFilles <- filles[sample(1:nrow(filles), 30,replace=FALSE), ]
-
-echanGarçonsAlcool<- echanGarçons[sample(1:nrow(echanGarçons), 30,replace=FALSE), ]
-echanFillesAlcool <- echanFilles[sample(1:nrow(echanFilles), 30,replace=FALSE), ]
-
-
-percentEchanGarçonsAlcool <- nrow(echanGarçonsAlcool)/nrow(echanGarçons)
-percentEchanFillesAlcool <- nrow(echanFillesAlcool)/nrow(echanFilles)
+pourcentEFAlcool <- nrow(subset(echanFilles, Walc+Dalc>5))/nrow(echanFilles)
 
 # 3.3 - Test d'Hypothèse 
 # Nous alons prendre en considération que alpha = 5%
@@ -44,29 +40,29 @@ percentEchanFillesAlcool <- nrow(echanFillesAlcool)/nrow(echanFilles)
 # 3.3.1 Garçons
 
 # Nous supposons que ce sont les garçons qui abusent beaucoup de l'alcool
-# et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 80
+# et donc nous pensons que le pourcentage de garçons qui abusent de l'alcool sera de H0 = 25
 
-testG <- t.test(nrow(garçonsAlcool)/nrow(garçons), mu=0.3)
-testG$p.value # Affichage de la p-value
+h0 <- 0.25
+ecartTypeH0 <- sqrt(h0 * (1 - h0))
+ecartTypeHPG <- ecartTypeH0/sqrt(nrow(echanGarçons))
+valCritG <- (pourcentEGAlcool - h0)/ecartTypeHPG
 
-# Nous avons un résultat égal a 1.888. cette valeur est supérieur 
+# Nous avons un résultat égal a 1.05. cette valeur est supérieur 
 # a alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.
 
 # 2.3.2 Filles
 
 # Nous supposons que ce sont les filles qui abusent le moins de l'alcool
-# et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 60
+# et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de H0 = 10
 
+h1 <- 0.10
+ecartTypeH1 <- sqrt(h1 * (1 - h1))
+ecartTypeHPF <- ecartTypeH1/sqrt(nrow(echanFilles))
+valCritF <- (pourcentEFAlcool - h1)/ecartTypeHPF
 
-testF <- t.test((echanFilles$Dalc + echanFilles$Walc)>5, mu=0.08)
-testF$p.value # Affichage de la p-value
-
-testF <-prop.test(echanFillesAlcool$Dalc + echanFillesAlcool$Walc, echanFilles$Dalc + echanFilles$Walc)
-testF$p.value # Affichage de la p-value
-
-
-# Nous avons un résultat égal a -1,595. Cette valeur est inférieur 
+# Nous avons un résultat égal a 0. Cette valeur est inférieur 
 # a alpha (0.05). De ce fait, nous rejetons notre hypothèse H0.
+# Ce résultat est dû au fait qu'il y a très peu de filles alcoolique.
 
 
 # 3.4 Graphs
