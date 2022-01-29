@@ -15,10 +15,10 @@
     <h3>Introduction</h3>
 
     <p>Ce document est un rapport portant sur un projet de mathématique. <br>
-      L'objectif de ce projet et de déterminer si l'alcool impacte les résultats scolaires.<br>
+      L'objectif de ce projet est de déterminer si l'alcool impacte les résultats scolaires.<br>
       Dans ce rapport, nous vous présenterons dans un premier temps les membres ainsi que leur rôle dans le projet.<br>
       Nous enchaînerons avec la description du sujet et de ses finalités. Nous poursuivrons avec un descriptif des données utilisées, <br>
-      puis, nous parlerons de notre méthodologie de travail suivie des résultats. 
+      pui, nous parlerons de notre méthodologie de travail suivie des résultats. 
       Nous terminerons par une courte conclusion.
     </p>
 
@@ -27,14 +27,14 @@
     <p>Dans cette partie, nous allons présenter chaque membre de l'équipe ainsi que leur rôle dans ce projet.<br>
 
       Dans ce groupe, nous sommes 2. Nous avons travaillé ensemble afin de créer le script d'extraction de données. <br>
-      De même, pour la première question, nous avons tous les deux travaillé sur la partie d'échantillonnage et de test d'hypothèse et
+      De même, pour la première question, nous avons tous les deux travaillé sur la partie d'échantillonnage et de tests d'hypothèse et
       nous avons tous les deux participé à la préparation de l'orale.<br>
       
       ALCARAZ Yannick vient d'un BTS et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 2 et 3 en plus        
       des échantillonnages, des test d'hypothèse et à de la création des graphiques.  Il a ensuite fait le Diaporama pour la soutenance.<br>
       
       CORBIERE Nicolas vient d'un IUT et a fait la L3 MIAGE. Il a eu pour tâche de faire la question 1 ainsi que le rapport. 
-      Il a beaucoup contribué sur l'extraction des données et sur les tests d'hypothèse. Il a ensuite structure l'orale pour la soutenance. <br>
+      Il a beaucoup contribué sur l'extraction des données et sur les tests d'hypothèse. Il a ensuite structuré l'orale pour la soutenance. <br>
     </p>
 
     <h3>Descriptif du sujet et de ses finalites</h3>
@@ -72,26 +72,27 @@
         commencé à mettre en place un répertoire git afin de pouvoir facilement partager notre code. <br>
         Pour calculer la moyenne d'alcoolémie, nous avons comme donné un indice de consommation de lundi à vendredi et un indice <br>
         pour les week-ends. Nous avons alors additionné ces deux indices pour obtenir la consommation dans la semaine. <br>
-        À partir de ce nouvel indice, nous avons effectué le calcul de la moyenne. <br>
+        À partir de ce nouvel indice, nous avons effectué le calcul de moyennes. <br>
         Pour la création d'échantillons, nous prenons de manière aléatoire un nombre d'individus supérieur ou égal à 30 parmi la base, <br>
-        comme lu cours. Suite à cela, nous proposons des hypothèses et les vérifions grâce à des tests d'hypothèse. <br>
-        Au départs, nous avons calculer la moyenne et l'écart type des échantillons afin de calculer la valeur T a partir de ces formules : 
+        comme lu en cours. Suite à cela, nous proposons des hypothèses et les vérifions grâce à des tests d'hypothèse. <br>
+        Aux départs, nous avons calculé la moyenne et l'écart type des échantillons afin de calculer la valeur T à partir de ces formules : 
       </p>
 
       <p>Pour la question 1 et 2, nous effectuons des tests d'hypothèse classique : </p>
       <img src="img/formule_T.PNG" width="150" height="100">
+      <p> Cependant, pour ces tests, nous avons trouvé une fonction dans R qui nous permet de facilement faire des tests d'hypothèses, il s'agit de la méthode "t.test()"</p>
 
 
-      <p>Pour la qustion 3, nous effectuons des tests d'hypothèse sur des proportions : </p>
+      <p>Pour la question 3, nous effectuons des tests d'hypothèse sur des proportions : </p>
       <img src="img/formule_TProp.PNG" width="200" height="120">
-
-
+      <p> Pour ces tests, nous n'avons pas trouver de fonction pour nous aider, nous avons donc effectuer les calculs d'une manière plus classique. </p>
       <p>
-        Cependant, suite a nos recherche, nous avons trouver que la formule "t.test" nous permet d'effectuer des test d'hypothèse <br>
-        très rapidement. De ce fait, la méthode nous renvoi plusieur donnée, notamment une p-value qui nous permet alors<br>
-        de rejeter notre hypothèse si cet valeur est inférieur a alpha, qui est égal a 0.05. <br>
-        Cependant, nous avons remarquer qu'en fonction de l'échabntilons, le résultat du test peut être différents, cependant <br>
-        ceci ne pause pas tant de souvcis que cela pour la validation ou l'invalidation d'une hypothèse.
+        Cependant, suite à nos recherches, nous avons trouvé que la formule "t.test" nous permet d'effectuer des tests d'hypothèse très rapidement. 
+        De ce fait, la méthode nous renvoi plusieurs données, notamment une p-value qui nous permet alors de rejeter notre hypothèse si cette valeur 
+        est inférieure a alpha, qui est égal a 0.05. De plus, nous avons remarqué qu'en fonction de l'échantillon, le résultat du test peut être différent, 
+        mais ceci ne pose pas tant de soucis que cela pour la validation ou l'invalidation d'une hypothèse.
+        La question 3 étant un calcul basé sur des proportions, nous avons cherché une fonctionnaire permettant de nous faciliter le calcul de la p-value. 
+        Nous n'avons pas trouvé de méthode de ce genre et avons décidé de le faire d'une manière plus classique.
       </p>
     <h3>Resultats</h3>
 
@@ -185,11 +186,11 @@
   <ul>
     <li>
       H0 = Nous supposons que ce sont les garçons qui abusent de l'alcool<br>
-      et donc nous pensons que le pourcentage de garçons qui en abusent est de 80.
+      et donc nous pensons que le pourcentage de garçons qui en abusent est de 25%.
     </li>
     <li>
       H1 = Nous supposons que ce sont les filles qui abusent le moins de l'alcool<br>
-       et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de 60.
+       et donc nous pensons que le pourcentage de filles qui abusent de l'alcool sera de 10%.
       
     </li>
   </ul>
@@ -198,20 +199,24 @@
     Pour cette question, nous avons pris un échantilllons de 30 hommes et un échantillons de 30 femmes.
   </p>
 
-  <p> Nous avons un résultat égal à 0,544. Cette valeur est supérieure <br>
+  <p> Pour H0, nous avons un résultat égal à 1,05. Cette valeur est supérieure <br>
     à alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0.</p>
     
-  <p>Nous avons un résultat égal à -1,595. Cette valeur est inférieure      <br>
-    à alpha (0.05). De ce fait, nous rejetons notre hypothèse H1.</p>
+  <p>Pour H1, nous avons un résultat égal à 0. Cette valeur est supérieure à alpha (0,05). De ce fait, nous ne rejetons pas notre hypothèse H0. <br>
+    Nous avons un résultat égal à 0. Cette valeur est inférieure à alpha (0.05). <br>
+    De ce fait, nous rejetons notre hypothèse H1. Ce résultat s'explique par le fait que très peu de femmes abusent de l'alcool. <br>
+    Dans nos données, nous avons trouvé 16 femmes qui en abusent contre 54. De ce fait,<br>
+     nous avons trop peu d'information pour faire des tests convaincants.</p>
+    
 
     <h3>Conclusion</h3>
    
     <p>Grâce à cette étude, nous pouvons dire que le niveau d'éducation des parents ne joue pas un        <br>
-      rôle important dans la consommation d'alcool. De plus, les femmes consomment plus d'alcool que les hommes      <br> 
+      rôle important dans la consommation d'alcool. De plus, les femmes consomment moins d'alcool que les hommes      <br> 
       et au final, l'alcool impacte de manière négative les résultats scolaires. <br>
       <br>
-      Cependant, il faut faire attention, cette étude se base sur très peu de données, <br>
-      nous ne pouvons donc pas en conclure qu’ils s’agissent d’une vérité globalement partager à travers le monde. <br>
+      Cependant, il faut faire attention, cette étude se base sur très peu de données. <br>
+      Nous ne pouvons donc pas en conclure qu’ils s’agissent d’une vérité globalement partager à travers le monde. <br>
     </p>
     
   </body>
